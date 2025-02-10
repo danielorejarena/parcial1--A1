@@ -1,0 +1,19 @@
+services:
+  mysqldb:
+    image: mysql:8.4.3
+    container_name: 'mysql-login-system'
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'login_system'
+      MYSQL_USER: 'user_system'
+      MYSQL_PASSWORD: 'Mysql@123'
+      MYSQL_ROOT_PASSWORD: 'Mysql@123@'
+    ports:
+      # <Exposed> : <Inside container>
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - login-system-data:/var/lib/mysql
+volumes:
+  login-system-data:
